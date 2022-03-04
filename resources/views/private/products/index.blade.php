@@ -37,12 +37,16 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Categor&iacute;a</th>
+                        <th>Precio Mayorista</th>
+                        <th>Precio Minorista</th>
                         <th colspan="2">Acciones</th>
                     </tr>
                     @forelse($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->categories->name }}</td>
+                            <td>${{ number_format($product->price_wholesalers) }}</td>
+                            <td>${{ number_format($product->retail_price) }}</td>
                             <td style="width: 10px">
                                 <a href="{{ route('products.edit', $product) }}" class="btn ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

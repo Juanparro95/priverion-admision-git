@@ -43,6 +43,9 @@ class ProductController extends Controller
             'slug' => 'required',
             'category_id' => 'required',
             'description' => 'required',
+            'importance' => 'required',
+            'price_wholesalers' => 'required',
+            'retail_price' => 'required',
         ]);
 
         Product::create([
@@ -50,6 +53,9 @@ class ProductController extends Controller
             'slug' => $request->slug,
             'description' => $request->description,
             'category_id' => $request->category_id,
+            'importance' => $request->importance,
+            'price_wholesalers' => $request->price_wholesalers,
+            'retail_price' => $request->retail_price,
         ]);
 
         return redirect()->route('products.index')
@@ -79,7 +85,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        return view("private.products.edit", compact('product', 'categories '));
+        return view("private.products.edit", compact('product', 'categories'));
     }
 
     /**
@@ -95,6 +101,9 @@ class ProductController extends Controller
             'name' => 'required',
             'slug' => 'required',
             'description' => 'required',
+            'importance' => 'required',
+            'price_wholesalers' => 'required',
+            'retail_price' => 'required',
         ]);
 
         $product->update($request->all());
