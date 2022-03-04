@@ -1,5 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="d-flex align-items-center p-3 my-3 text-white bg-color-present rounded shadow-sm">
+            <div class="lh-1">
+                <h1 class="h6 mb-0 text-white lh-1">CRUD PRODUCTOS</h1>
+            </div>
+        </div>
         <div class="mt-3">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -36,55 +41,59 @@
             </div>
             <div class="card-body">
                 <table class="table table-hover table-striped">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Categor&iacute;a</th>
-                        <th>Precio Mayorista</th>
-                        <th>Precio Minorista</th>
-                        <th colspan="2">Acciones</th>
-                    </tr>
-                    @forelse($products as $product)
+                    <thead>
                         <tr>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->categories->name }}</td>
-                            <td>${{ number_format($product->price_wholesalers) }}</td>
-                            <td>${{ number_format($product->retail_price) }}</td>
-                            <td style="width: 10px">
-                                @can('Editar Producto')
-                                    <a href="{{ route('products.edit', $product) }}" class="btn ">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                            <path fill-rule="evenodd"
-                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                        </svg>
-                                    </a>
-                                @endcan
-                            </td>
-                            <td style="width: 10px">
-                                @can('Eliminar Producto')
-                                    <form action="{{ route('products.destroy', $product) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn"><svg xmlns="http://www.w3.org/2000/svg"
-                                                width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
-                                                viewBox="0 0 16 16">
+                            <th>Nombre</th>
+                            <th>Categor&iacute;a</th>
+                            <th>Precio Mayorista</th>
+                            <th>Precio Minorista</th>
+                            <th colspan="2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($products as $product)
+                            <tr>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->categories->name }}</td>
+                                <td>${{ number_format($product->price_wholesalers) }}</td>
+                                <td>${{ number_format($product->retail_price) }}</td>
+                                <td style="width: 10px">
+                                    @can('Editar Producto')
+                                        <a href="{{ route('products.edit', $product) }}" class="btn ">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                 <path
-                                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                             </svg>
-                                        </button>
-                                    </form>
-                                @endcan
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="3">
-                                No hay registros
-                            </td>
-                        </tr>
-                    @endforelse
+                                        </a>
+                                    @endcan
+                                </td>
+                                <td style="width: 10px">
+                                    @can('Eliminar Producto')
+                                        <form action="{{ route('products.destroy', $product) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    @endcan
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3">
+                                    No hay registros
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
                 </table>
             </div>
             <div class="card-footer text-muted">

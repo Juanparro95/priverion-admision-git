@@ -1,0 +1,16 @@
+.card {
+    border: 0px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header {
+    background-color: chocolate;
+    color: white;
+}
+
+header {
+    background-color: beige;
+}
+
+.bg-color-present {
+    background-color: aquamarine;
+}

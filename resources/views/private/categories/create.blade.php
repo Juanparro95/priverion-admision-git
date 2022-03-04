@@ -1,5 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="d-flex align-items-center p-3 my-3 text-white bg-color-present rounded shadow-sm">
+            <div class="lh-1">
+                <h1 class="h6 mb-0 text-white lh-1">CREAR CATEGOR&Iacute;AS</h1>
+            </div>
+        </div>
         <div class="mt-3">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
