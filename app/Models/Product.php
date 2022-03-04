@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'category_id',
+        'description',
+    ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    // Relacion uno a muchos inverso
+
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }
