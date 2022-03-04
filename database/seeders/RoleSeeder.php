@@ -16,10 +16,10 @@ class RoleSeeder extends Seeder
     {
         $role = Role::create(["name" => 'Administrador']);
 
-        $role->permissions()->attach([1, 2, 3, 4, 5, 7, 8]);
+        $role->permissions()->attach([1, 2, 3, 4, 5, 6, 7, 8]);
 
         $role = Role::create(["name" => 'Operador']);
 
-        $role->permissions()->attach([1, 2, 3, 5, 7]);
+        $role->permissions()->attach([1, 2, 3, 5, 6, 7]);
     }
 }
