@@ -4,8 +4,8 @@
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('dashboard') }}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categorias</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                    <li class="breadcrumb-item"><a href="{{ route('categories.index') }}">Categorías</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Actualizar Categoría</li>
                 </ol>
             </nav>
         </div>
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-header">
-                    Listado de Categor&iacute;as
+                    Actualizar Categor&iacute;a {{ $category->name }}
                 </div>
                 <div class="card-body">
                     {!! Form::model($category, ['route' => ['categories.update', $category], 'method' => 'put']) !!}
