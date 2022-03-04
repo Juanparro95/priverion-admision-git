@@ -45,6 +45,7 @@ class RegisteredUserController extends Controller
             'photo' => env('URL_IMAGE') . $request->name,
             'password' => Hash::make($request->password),
         ]);
+        $user->assignRole('Operador');
 
         event(new Registered($user));
 
