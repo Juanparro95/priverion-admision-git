@@ -11,13 +11,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"
-                        href="{{ route('categories.index') }}">Categor&iacute;as</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
-                </li>
+                @can('Listar Categoría')
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            href="{{ route('categories.index') }}">Categor&iacute;as</a>
+                    </li>
+                @endcan
+                @can('Listar Producto')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('products.index') }}">Productos</a>
+                    </li>
+                @endcan
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
